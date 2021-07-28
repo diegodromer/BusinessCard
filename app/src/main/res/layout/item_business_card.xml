@@ -14,7 +14,7 @@
         android:clickable="true"
         android:focusable="true"
         app:cardCornerRadius="16dp"
-        app:cardElevation="12dp"
+        app:cardElevation="8dp"
         app:layout_constraintDimensionRatio="16:9"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

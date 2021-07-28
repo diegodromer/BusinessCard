@@ -9,4 +9,5 @@
     <string name="label_description_new_card">Novo Cartão</string>
     <string name="label_business_cards">Cartão de Visita</string>
     <string name="label_show_sucess">Cartão cadastrado com sucesso!</string>
+    <string name="label_share">Compartilhar</string>
 </resources>

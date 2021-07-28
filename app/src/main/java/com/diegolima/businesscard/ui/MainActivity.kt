@@ -7,6 +7,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.observe
 import com.diegolima.businesscard.App
 import com.diegolima.businesscard.databinding.ActivityMainBinding
+import com.diegolima.businesscard.util.Image
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,6 +32,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this@MainActivity, addBusinessCardActivity::class.java)
             startActivity(intent)
         }
+
+        adapter.listenerShare = { card ->
+            Image.share(this@MainActivity, card)
+        }
+
     }
 
     private fun getAllBusinessCard(){
