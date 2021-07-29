@@ -12,6 +12,8 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.FileProvider
+import com.diegolima.businesscard.BuildConfig
 import com.diegolima.businesscard.R
 import java.io.File
 import java.io.FileOutputStream
@@ -51,11 +53,20 @@ class Image {
                         resolver.openOutputStream(it)
                     }
                 }
-            } else {
-                //Devices rodando < Q
+            }else if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N){
                 val imagesDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
                 val image = File(imagesDir, filename)
+
+                val photoUri = FileProvider.getUriForFile(context, BuildConfig.APPLICATION_ID + ".provider", image)
+                shareIntent(context, photoUri)
+
+                fos = FileOutputStream(image)
+            }else { //abaixo da N (SDK 24) -> não testado
+                val imagesDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+                val image = File(imagesDir, filename)
+
                 shareIntent(context, Uri.fromFile(image))
+
                 fos = FileOutputStream(image)
             }
 

@@ -22,7 +22,10 @@ class BusinessCardAdapter :
             binding.tvEmail.text = item.email
             binding.tvTelefone.text = item.telefone
             binding.tvEmpresa.text = item.empresa
-            binding.mcvContent.setCardBackgroundColor(Color.parseColor(item.fundoPersonalizado))
+            try {
+                binding.mcvContent.setCardBackgroundColor(Color.parseColor(item.fundoPersonalizado))
+            }catch (e: Exception){
+            }
             binding.mcvContent.setOnClickListener {
                 listenerShare(it)
             }
